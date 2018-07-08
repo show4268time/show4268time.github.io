@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="JDK中的单例模式光说不练假把式，上一遍博文讲了单例的实现方法，这一篇就讲讲哪里用到单例模式了，分为JDK和Spring，因为这两个是我们平时写代码一种用到的。我们先从JDK开始。  java.lang.Runtime  在JAVA进程中，时间必须都是统一的，及Runtime的实例应该只有一个。所以应该使用单例来实现。话不多说，先贴代码 public class Runtime {">
+  <meta name="description" content="JDK中的单例模式光说不练假把式，上一遍博文讲了单例的实现方法，这一篇就讲讲哪里用到单例模式了，分为JDK和Spring，因为这两个是我们平时写代码一种用到的。我们先从JDK开始。  java.lang.Runtime  在JAVA进程中，时间必须都是统一的，及Runtime的实例应该只有一个。所以应该使用单例来实现。话不多说，先贴代码12345678910public class Runt">
 <meta name="keywords" content="Design pattern,Spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JDK和Spring中的单例">
 <meta property="og:url" content="http://yoursite.com/2018/07/07/JDK和Spring中的单例/index.html">
 <meta property="og:site_name" content="ShowTime&#39;s Blog">
-<meta property="og:description" content="JDK中的单例模式光说不练假把式，上一遍博文讲了单例的实现方法，这一篇就讲讲哪里用到单例模式了，分为JDK和Spring，因为这两个是我们平时写代码一种用到的。我们先从JDK开始。  java.lang.Runtime  在JAVA进程中，时间必须都是统一的，及Runtime的实例应该只有一个。所以应该使用单例来实现。话不多说，先贴代码 public class Runtime {">
+<meta property="og:description" content="JDK中的单例模式光说不练假把式，上一遍博文讲了单例的实现方法，这一篇就讲讲哪里用到单例模式了，分为JDK和Spring，因为这两个是我们平时写代码一种用到的。我们先从JDK开始。  java.lang.Runtime  在JAVA进程中，时间必须都是统一的，及Runtime的实例应该只有一个。所以应该使用单例来实现。话不多说，先贴代码12345678910public class Runt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-07T16:14:07.220Z">
+<meta property="og:updated_time" content="2018-07-08T14:38:26.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JDK和Spring中的单例">
-<meta name="twitter:description" content="JDK中的单例模式光说不练假把式，上一遍博文讲了单例的实现方法，这一篇就讲讲哪里用到单例模式了，分为JDK和Spring，因为这两个是我们平时写代码一种用到的。我们先从JDK开始。  java.lang.Runtime  在JAVA进程中，时间必须都是统一的，及Runtime的实例应该只有一个。所以应该使用单例来实现。话不多说，先贴代码 public class Runtime {">
+<meta name="twitter:description" content="JDK中的单例模式光说不练假把式，上一遍博文讲了单例的实现方法，这一篇就讲讲哪里用到单例模式了，分为JDK和Spring，因为这两个是我们平时写代码一种用到的。我们先从JDK开始。  java.lang.Runtime  在JAVA进程中，时间必须都是统一的，及Runtime的实例应该只有一个。所以应该使用单例来实现。话不多说，先贴代码12345678910public class Runt">
 
 
 
@@ -352,7 +352,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-08 00:14:07" itemprop="dateModified" datetime="2018-07-08T00:14:07+08:00">2018-07-08</time>
+                <time title="Modified: 2018-07-08 22:38:26" itemprop="dateModified" datetime="2018-07-08T22:38:26+08:00">2018-07-08</time>
               
             
           </span>
@@ -389,30 +389,14 @@
 <ol>
 <li><strong>java.lang.Runtime</strong></li>
 </ol>
-<p>在JAVA进程中，时间必须都是统一的，及Runtime的实例应该只有一个。所以应该使用单例来实现。<br>话不多说，先贴代码</p>
-<pre><code class="java"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Runtime</span> </span>{
-    <span class="keyword">private</span> <span class="keyword">static</span> Runtime currentRuntime = <span class="keyword">new</span> Runtime();
-
-    <span class="comment">/**</span>
-<span class="comment">     * Returns the runtime object associated with the current Java    application.</span>
-<span class="comment">     * Most of the methods of class &lt;code&gt;Runtime&lt;/code&gt; are instance</span>
-<span class="comment">     * methods and must be invoked with respect to the current runtime object.</span>
-<span class="comment">     *</span>
-<span class="comment">     * <span class="doctag">@return</span>  the &lt;code&gt;Runtime&lt;/code&gt; object associated with the current</span>
-<span class="comment">     * Java application.</span>
-<span class="comment">     */</span>
-    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Runtime <span class="title">getRuntime</span><span class="params">()</span> </span>{
-        <span class="keyword">return</span> currentRuntime;
-    }
-
-    <span class="comment">/** Don't let anyone else instantiate this class */</span>
-    <span class="function"><span class="keyword">private</span> <span class="title">Runtime</span><span class="params">()</span> </span>{}
-}
-</code></pre>
+<p>在JAVA进程中，时间必须都是统一的，及Runtime的实例应该只有一个。所以应该使用单例来实现。<br>话不多说，先贴代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Runtime</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Runtime currentRuntime = <span class="keyword">new</span> Runtime();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Runtime <span class="title">getRuntime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> currentRuntime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Don't let anyone else instantiate this class */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Runtime</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>以上时JDK中的部分代码，从上面的代码我们可以得知使用的是饿汉单例模式，在Runtime这个类被加载的时候这个类就被创建出来了。</p>
 <p>Runtime类封装了Java运行时的环境。每一个java程序实际上都是启动了一个JVM进程，那么每个JVM进程都是对应这一个Runtime实例，此实例是由JVM为其实例化的。每个 Java 应用程序都有一个 Runtime 类实例，使应用程序能够与其运行的环境相连接。</p>
 <hr>
-<p>未完待续</p>
+<h2 id="Spring中的单例模式"><a href="#Spring中的单例模式" class="headerlink" title="Spring中的单例模式"></a>Spring中的单例模式</h2><p>Spring依赖注入Bean实例默认是单例的，但是Spring中使用的单例模式不是我们上一篇中介绍的那几种模式，而是一种特殊的单例模式–<strong>登记模式</strong>，为什么说他特殊呢？因为登记模式不是一种真正意义上的单例模式，单例模式的单例作用域是整个java环境也就是JVM，但是登记模式不是，Spring中Bean的作用域是应用程序的上下文也就是  <strong>ApplicationContext</strong>，换句话说也就是可以有多个Spring容器，每一个容器内存在唯一Bean实例。<br>好了，就让我们看看这个注册模式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegisterSingleton</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//构建采用ConcurrentHashMap,用于充当缓存注册表</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Map&lt;String, Object&gt; singletonObjects = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 静态代码块只加载执行一次</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="comment">// 实例化Bean</span></span><br><span class="line">        RegisterSingleton registerSingleton = <span class="keyword">new</span> RegisterSingleton();</span><br><span class="line">        <span class="comment">//并注册到注册表中,key为类的完全限定名,value为实例化对象</span></span><br><span class="line">        singletonObjects.put(RegisterSingleton.getClass().getName(),registerSingleton);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 私有化构造方法,避免外部创建本类实例</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">RegisterSingleton</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     *  对外暴露获得该bean的方法,Spring框架一般会返回Object</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span>  RegisterSingleton <span class="title">getInstance</span><span class="params">(String className)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(className)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//从注册表获取,如果没有直接创建</span></span><br><span class="line">        <span class="keyword">if</span> (singletonObjects.get(className) == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="comment">//如果为空,通过反射进行实例化</span></span><br><span class="line">                singletonObjects.put(className, Class.forName(className).newInstance());</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//从缓存表中回去,如果缓存命中直接返回</span></span><br><span class="line">        <span class="keyword">return</span> (RegisterSingleton)singletonObjects.get(className);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<p>Spring中就是采用了这种特殊的注册模式来实现单例的模式的。<br>未完待续</p>
 
       
     </div>
@@ -587,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK中的单例模式"><span class="nav-number">1.</span> <span class="nav-text">JDK中的单例模式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK中的单例模式"><span class="nav-number">1.</span> <span class="nav-text">JDK中的单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring中的单例模式"><span class="nav-number">2.</span> <span class="nav-text">Spring中的单例模式</span></a></li></ol></div>
             
 
           </div>
