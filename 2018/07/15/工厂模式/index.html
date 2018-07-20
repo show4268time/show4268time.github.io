@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="ShowTime&#39;s Blog">
 <meta property="og:description" content="工厂模式介绍简介工厂方法模式(Factory Method Pattern)又称为工厂模式，也叫虚拟构造器(Virtual Constructor)模式或者多态工厂(Polymorphic Factory)模式，它属于类创建型模式。在工厂方法模式中，工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实例化操作延迟到工厂子类中完成，即通过工厂子类来确">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-20T14:00:59.599Z">
+<meta property="og:updated_time" content="2018-07-20T14:47:49.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工厂模式">
 <meta name="twitter:description" content="工厂模式介绍简介工厂方法模式(Factory Method Pattern)又称为工厂模式，也叫虚拟构造器(Virtual Constructor)模式或者多态工厂(Polymorphic Factory)模式，它属于类创建型模式。在工厂方法模式中，工厂父类负责定义创建产品对象的公共接口，而工厂子类则负责生成具体的产品对象，这样做的目的是将产品类的实例化操作延迟到工厂子类中完成，即通过工厂子类来确">
@@ -352,7 +352,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-07-20 22:00:59" itemprop="dateModified" datetime="2018-07-20T22:00:59+08:00">2018-07-20</time>
+                <time title="Modified: 2018-07-20 22:47:49" itemprop="dateModified" datetime="2018-07-20T22:47:49+08:00">2018-07-20</time>
               
             
           </span>
@@ -394,25 +394,22 @@
 <hr>
 <h2 id="工厂模式分类"><a href="#工厂模式分类" class="headerlink" title="工厂模式分类"></a>工厂模式分类</h2><p>一般有三种工厂模式：<br>简单工厂：把对象的创建放到一个工厂类中，通过参数来创建不同的对象。这个缺点是每添一个对象，就需要对简单工厂进行修改，这个缺点可以用反射的方法解决。<br>工厂方法：每种产品由一种工厂来创建，一个工厂保存一个对象的创建方法，基本完美，完全遵循 “不改代码”的原则。<br>抽象工厂：仅仅是工厂方法的复杂化，保存了多个对象的创建方法，大工程才用的上。<br>下面来依次介绍下这三种分类</p>
 <h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><p>简单工厂（Simple Factory）模式，又称静态工厂方法模式（Static Factory Method Pattern）。严格的说，简单工厂模式并不是23种常用的设计模式之一，它只算工厂模式的一个特殊实现。简单工厂模式在实际中的应用相对于其他2个工厂模式用的还是相对少得多，因为它只适应很多简单的情况。<br>最重要的是它违背了我们在概述中说的 开放-封闭原则 （虽然可以通过反射的机制来避免，后面我们会介绍到） 。因为每次你要新添加一个功能，都需要在生switch-case 语句（或者if-else 语句）中去修改代码，添加分支条件。  </p>
+<h4 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h4><ul>
+<li>工厂类负责创建的对象比较少。</li>
+<li>客户只知道传入工厂类的参数，对于如何创建对象（逻辑）不关心。</li>
+</ul>
+<h4 id="简单工厂模式角色"><a href="#简单工厂模式角色" class="headerlink" title="简单工厂模式角色"></a>简单工厂模式角色</h4><ul>
+<li>工厂角色（SampleFactory）：是简单工厂模式的核心，负责创建所有的类的内部逻辑。工厂类必须能够被外界调用，创建所需要的产品对象。</li>
+<li>抽象（AbstractProduct）产品角色：抽象产品是从其他具体产品抽象出来的。</li>
+<li>具体产品（Concrete Product）角色：具体产品类继承自抽象产品类，具体产品往往都拥有共同的父类。当需要增加新的产品的时候就增加一个继承自抽象产品类的具体产品类即可。<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4></li>
+</ul>
+<p>创建一个可以绘制不同形状的绘图工具，可以绘制圆形，正方形，三角形，每个图形都会有一个draw()方法用于绘图。  </p>
 <ul>
-<li><p>适用场景  </p>
-<ol>
-<li><p>工厂类负责创建的对象比较少。</p>
+<li><p>产品类 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment"> * 抽象产品-shape接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment"> * 具体产品-具体图形类-圆形</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">implements</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"Draw Circle! "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 具体产品-具体图形类-长方形</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">implements</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.print(<span class="string">"Draw Rectangle! "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br><span class="line">    </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 具体产品-具体图形类-正方形</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">implements</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.print(<span class="string">"Draw Square! "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>客户只知道传入工厂类的参数，对于如何创建对象（逻辑）不关心。</p>
-</li>
-</ol>
-</li>
-<li><p>简单工厂模式角色  </p>
-<ol>
-<li><p>工厂角色（SampleFactory）：是简单工厂模式的核心，负责创建所有的类的内部逻辑。工厂类必须能够被外界调用，创建所需要的产品对象。</p>
-</li>
-<li><p>抽象（AbstractProduct）产品角色：抽象产品是从其他具体产品抽象出来的。</p>
-</li>
-<li><p>具体产品（Concrete Product）角色：具体产品类继承自抽象产品类，具体产品往往都拥有共同的父类。当需要增加新的产品的时候就增加一个继承自抽象产品类的具体产品类即可。</p>
-</li>
-</ol>
-</li>
+<li><p>工厂类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 工厂类-图形工厂</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShapeFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Shape <span class="title">getShape</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(StringUtils.isBlank(name))&#123;</span><br><span class="line">            <span class="keyword">return</span>  <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (name.equalsIgnoreCase(<span class="string">"CIRCLE"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Circle();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (name.equalsIgnoreCase(<span class="string">"RECTANGLE"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Rectangle();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (name.equalsIgnoreCase(<span class="string">"SQUARE"</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Square();</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -586,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式介绍"><span class="nav-number">1.</span> <span class="nav-text">工厂模式介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用工厂模式"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要使用工厂模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式分类"><span class="nav-number">2.</span> <span class="nav-text">工厂模式分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单工厂模式"><span class="nav-number">2.1.</span> <span class="nav-text">简单工厂模式</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式介绍"><span class="nav-number">1.</span> <span class="nav-text">工厂模式介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要使用工厂模式"><span class="nav-number">1.2.</span> <span class="nav-text">为什么要使用工厂模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工厂模式分类"><span class="nav-number">2.</span> <span class="nav-text">工厂模式分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单工厂模式"><span class="nav-number">2.1.</span> <span class="nav-text">简单工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#适用场景"><span class="nav-number">2.1.1.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#简单工厂模式角色"><span class="nav-number">2.1.2.</span> <span class="nav-text">简单工厂模式角色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">2.1.3.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
