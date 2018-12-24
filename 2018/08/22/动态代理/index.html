@@ -117,7 +117,7 @@
 <meta property="og:description" content="动态代理代理模式所谓代理，是一个人或组织代替另一个人或组织做事，主要有3个角色：访问者、代理人、被代理人，访问者经由代理人，与被代理人交互，中间会加入一些自己的处理。所谓的动态代理，是说在编译时不需要定义代理类，而是在运行时创建，这个是关键：在运行时创建代理类。 JDK动态代理动态代码涉及了一个非常重要的类 Proxy和一个非常重要的接口InvocationHandler。正是通过 Proxy 的">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://oc3r3rke2.bkt.clouddn.com/15222394888944.jpg">
-<meta property="og:updated_time" content="2018-12-24T14:40:24.736Z">
+<meta property="og:updated_time" content="2018-12-24T15:13:42.130Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="动态代理">
 <meta name="twitter:description" content="动态代理代理模式所谓代理，是一个人或组织代替另一个人或组织做事，主要有3个角色：访问者、代理人、被代理人，访问者经由代理人，与被代理人交互，中间会加入一些自己的处理。所谓的动态代理，是说在编译时不需要定义代理类，而是在运行时创建，这个是关键：在运行时创建代理类。 JDK动态代理动态代码涉及了一个非常重要的类 Proxy和一个非常重要的接口InvocationHandler。正是通过 Proxy 的">
@@ -354,7 +354,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-24 22:40:24" itemprop="dateModified" datetime="2018-12-24T22:40:24+08:00">2018-12-24</time>
+                <time title="修改时间：2018-12-24 23:13:42" itemprop="dateModified" datetime="2018-12-24T23:13:42+08:00">2018-12-24</time>
               
             
           </span>
@@ -388,7 +388,7 @@
 
       
         <h1 id="动态代理"><a href="#动态代理" class="headerlink" title="动态代理"></a>动态代理</h1><h2 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h2><p>所谓代理，是一个人或组织代替另一个人或组织做事，主要有3个角色：访问者、代理人、被代理人，访问者经由代理人，与被代理人交互，中间会<br>加入一些自己的处理。<br><img src="http://oc3r3rke2.bkt.clouddn.com/15222394888944.jpg" alt="代理模式结构"><br>所谓的动态代理，是说在编译时不需要定义代理类，而是在运行时创建，这个是关键：在运行时创建代理类。</p>
-<h2 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h2><p>动态代码涉及了一个非常重要的类 Proxy和一个非常重要的接口InvocationHandler。<br>正是通过 Proxy 的静态方法 newProxyInstance 才会动态创建代理。而newProxyInstance方法的最后一个参数就是InvocationHandler。</p>
+<h2 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h2><p>动态代码涉及了一个非常重要的类 Proxy和一个非常重要的接口InvocationHandler。<br>正是通过 Proxy 的静态方法 newProxyInstance 才会动态创建代理。而newProxyInstance方法的最后一个参数就是InvocationHandler。代理类最终逻辑的实现是分派给InvocationHandler实例的invoke方法</p>
 <h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Object <span class="title">newProxyInstance</span><span class="params">(ClassLoader loader, Class&lt;?&gt;[] interfaces, InvocationHandler h)</span></span></span><br></pre></td></tr></table></figure>
 <p>newProxyInstance()方法有三个参数：</p>
 <ol>
